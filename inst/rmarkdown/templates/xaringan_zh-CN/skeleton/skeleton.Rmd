@@ -10,6 +10,7 @@ output:
     nature:
       highlightStyle: github
       highlightLines: true
+      countIncrementalSlides: false
 ---
 
 ```{r setup, include=FALSE}
@@ -175,14 +176,14 @@ remark.js （左）与 **xaringan** （右）：
 数学公式用 LaTeX 语法写在一对美元符号中间，例如 &#36;\alpha+\beta$ 会生成 $\alpha+\beta$。若要将公式单独显示为一个段落，可以用一对双重美元符号：
 
 ```
-$$ math $$
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
 ```
 
 $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
 
 局限性：
 
-1. 公式的源代码只能写在一行上，不能换行；
+1. 公式的源代码只能写在一行上，不能换行；双重美元符号内的公式允许换行，但条件是起始标记 `$$` 必须在一行的最开头（前面不能有任何字符，后面必须跟一个不是空格的字符），结束标记 `$$` 必须在一行的最末尾（前面必须是一个非空格的字符，后面不能有任何字符）；
 
 1. 起始美元符号后以及结束美元符号前不能有空格，否则不会被识别为公式；
 
@@ -330,13 +331,13 @@ if (TRUE) {
 
 `xaringan::moon_reader` 的所有选项中，最强的魔法在 `css` 选项上，它是自定义幻灯片样式的关键。如果你不懂 CSS 的话，我强烈建议你学习一些 CSS 的基础知识。
 
-**xaringan** 包中的默认 CSS 文件在[这里](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/example.css)，你可以在它的基础上改装，也可以直接定义全新的 CSS 样式。
+对中文幻灯片，**xaringan** 包中的默认 CSS 文件在[这里](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan_zh-CN/skeleton/zh-CN.css)，你可以在它的基础上改装，也可以直接定义全新的 CSS 样式。
 
 ---
 
 # CSS（层叠样式表）
 
-举个栗子。比如你想将一段文字的颜色改为红色，你可以定义一个 CSSS 类，如：
+举个栗子。比如你想将一段文字的颜色改为红色，你可以定义一个 CSS 类，如：
 
 ```css
 .red {
@@ -426,7 +427,7 @@ background-position: 90% 8%
 
 嗯，我们来讲一个不容易看懂的冷笑话。
 
-![](http://img-9gag-fun.9cache.com/photo/aKBrORN_700b.jpg)
+![](https://img-9gag-fun.9cache.com/photo/aKBrORN_700b.jpg)
 
 ---
 

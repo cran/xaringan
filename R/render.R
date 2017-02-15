@@ -5,6 +5,10 @@
 #' \code{tsukuyomi()} is an alias of \code{moon_reader()}.
 #'
 #' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
+#'
+#' If you are unfamiliar with CSS, please see the
+#' \href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
+#' providing CSS slide modification examples.
 #' @param css A vector of CSS file paths. A default CSS file is provided in this
 #'   package, which was borrowed from \url{https://remarkjs.com}. If the
 #'   character vector \code{css} contains the value \code{'default'}, the
@@ -72,11 +76,21 @@ moon_reader = function(
     play_js), collapse = '\n')))
   )), tmp_js)
 
-  html_document2 = function(..., includes = list()) {
+  html_document2 = function(
+    ..., includes = list(), mathjax = 'default', pandoc_args = NULL
+  ) {
     if (length(includes) == 0) includes = list()
     includes$before_body = c(includes$before_body, tmp_md)
     includes$after_body = c(tmp_js, includes$after_body)
-    rmarkdown::html_document(..., includes = includes)
+    if (identical(mathjax, 'local'))
+      stop("mathjax = 'local' does not work for moon_reader()")
+    if (!identical(mathjax, 'default')) {
+      pandoc_args = c(pandoc_args, '--variable', paste0('mathjax-url:', mathjax))
+      mathjax = NULL
+    }
+    rmarkdown::html_document(
+      ..., includes = includes, mathjax = mathjax, pandoc_args = pandoc_args
+    )
   }
 
   optk = list()
@@ -109,9 +123,10 @@ moon_reader = function(
     ) {
       res = split_yaml_body(input_file)
       writeUTF8(res$yaml, input_file)
-      body = res$body
-      res$body = protect_math(body)
-      writeUTF8(htmlEscape(yolofy(res$body, yolo)), tmp_md)
+      res$body = protect_math(res$body)
+      content = htmlEscape(yolofy(res$body, yolo))
+      Encoding(content) = 'UTF-8'
+      writeUTF8(content, tmp_md)
       c(
         if (seal) c('--variable', 'title-slide=true'),
         if (!identical(body, res$body)) c('--variable', 'math=true')
@@ -138,9 +153,12 @@ tsukuyomi = function(...) moon_reader(...)
 #' \code{inf_mr()} is an alias of \code{infinite_moon_reader()}.
 #'
 #' The Rmd document is compiled continuously to trap the world in the Infinite
-#' Tsukuyomi.
+#' Tsukuyomi. The genjutsu is cast from the directory specified by
+#' \code{cast_from}, and the Rinne Sharingan will be reflected off of the
+#' \code{moon}.
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
+#' @param cast_from The root directory of the server.
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
@@ -148,7 +166,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @seealso \code{servr::\link{httw}}
 #' @export
 #' @rdname inf_mr
-infinite_moon_reader = function(moon) {
+infinite_moon_reader = function(moon, cast_from = '.') {
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
@@ -166,14 +184,25 @@ infinite_moon_reader = function(moon) {
       basename(moon), '".'
     )
   }
-  moon = normalizePath(moon, mustWork = TRUE)
+  moon = normalize_path(moon)
   rebuild = function(...) {
-    if (moon %in% normalizePath(c(...))) rmarkdown::render(
-      moon, envir = globalenv()
+    if (moon %in% normalize_path(c(...))) rmarkdown::render(
+      moon, envir = globalenv(), encoding = 'UTF-8'
     )
   }
-  html = rebuild(moon)  # render slides initially
-  servr::httw(dirname(moon), initpath = basename(html), handler = rebuild)
+  html = normalize_path(rebuild(moon))  # render slides initially
+  d = normalize_path(cast_from)
+  f = rmarkdown::relative_to(d, html)
+  # see if the html output file is under the dir cast_from
+  if (f == html) {
+    d = dirname(html)
+    f = basename(html)
+    warning(
+      "Cannot use '", cast_from, "' as the root directory of the server because ",
+      "the HTML output is not under this directory. Using '", d, "' instead."
+    )
+  }
+  servr::httw(d, initpath = f, handler = rebuild)
 }
 
 #' @export
