@@ -34,7 +34,10 @@
 #'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
-#'   \code{autoplay} seconds.
+#'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
+#'   (the number of milliseconds) to include a countdown timer on each slide. If
+#'   using \code{autoplay}, you can optionally set \code{countdown} to
+#'   \code{TRUE} to include a countdown equal to \code{autoplay}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
@@ -49,6 +52,11 @@
 #'   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
 #'   time-consuming for Pandoc to download remark.js each time you compile your
 #'   slides.
+#'
+#'   Each page has its own countdown timer (when the option \code{countdown} is
+#'   set in \code{nature}), and the timer is (re)initialized whenever you
+#'   navigate to a new page. If you need a global timer, you can use the
+#'   presenter's mode (press \kbd{P}).
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
@@ -66,14 +74,20 @@ moon_reader = function(
 
   play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
     sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
-  nature[['autoplay']] = NULL
+
+  if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
+  countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
+    '(%s)(%d);', paste(readLines(pkg_resource('countdown.js')), collapse = '\n'), countdown
+  )
+
+  nature[['countdown']] = nature[['autoplay']] = NULL
 
   writeUTF8(as.character(tagList(
     tags$script(src = chakra),
     tags$script(HTML(paste(c(sprintf(
-      'var slideshow = remark.create(%s);', if (length(nature)) tojson(nature) else ''
-    ), "if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});",
-    play_js), collapse = '\n')))
+      'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
+    ), "if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});",
+    play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 
   html_document2 = function(
@@ -185,12 +199,22 @@ infinite_moon_reader = function(moon, cast_from = '.') {
     )
   }
   moon = normalize_path(moon)
-  rebuild = function(...) {
-    if (moon %in% normalize_path(c(...))) rmarkdown::render(
-      moon, envir = globalenv(), encoding = 'UTF-8'
-    )
+  rebuild = function() {
+    rmarkdown::render(moon, envir = globalenv(), encoding = 'UTF-8')
   }
-  html = normalize_path(rebuild(moon))  # render slides initially
+  build = local({
+    mtime = function() file.info(moon)[, 'mtime']
+    time1 = mtime()
+    function(...) {
+      time2 = mtime()
+      if (identical(time1, time2)) return(FALSE)
+      # moon has been changed, recompile it and reload in browser
+      rebuild()
+      time1 <<- time2
+      TRUE
+    }
+  })
+  html = normalize_path(rebuild())  # render slides initially
   d = normalize_path(cast_from)
   f = rmarkdown::relative_to(d, html)
   # see if the html output file is under the dir cast_from
@@ -202,7 +226,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
       "the HTML output is not under this directory. Using '", d, "' instead."
     )
   }
-  servr::httw(d, initpath = f, handler = rebuild)
+  servr:::dynamic_site(d, initpath = f, build = build)
 }
 
 #' @export
