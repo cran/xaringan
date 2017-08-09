@@ -85,7 +85,7 @@ escape_math = function(x) {
     z
   })
   # replace $$x$$ with `$$x$$` (protect display math)
-  m = gregexpr('(?<!`)[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
+  m = gregexpr('(?<=^|[\\s])[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
     if (length(z) == 0) return(z)
     paste0('`', z, '`')
@@ -96,6 +96,11 @@ escape_math = function(x) {
     x[i] = gsub('^([$][$])([^ ]+)', '`\\1\\2', x[i], perl = TRUE)
     x[i] = gsub('([^ ])([$][$])$', '\\1\\2`', x[i], perl = TRUE)
   }
+  # equation environments
+  i = grep('^\\\\begin\\{[^}]+\\}$', x)
+  x[i] = paste0('`', x[i])
+  i = grep('^\\\\end\\{[^}]+\\}$', x)
+  x[i] = paste0(x[i], '`')
   x
 }
 
@@ -115,4 +120,18 @@ summon_remark = function(version = 'latest', to = 'libs/') {
     paste0('https://remarkjs.com/downloads/', name),
     file.path(to, name)
   )
+}
+
+# replace {{code}} with *code so that this line can be highlighted in remark.js;
+# this also works with multiple lines
+highlight_code = function(x) {
+  x = paste0('\n', x)  # prepend \n and remove it later
+  r = '(\n)([ \t]*)\\{\\{(.+?)\\}\\}'
+  m = gregexpr(r, x)
+  regmatches(x, m) = lapply(regmatches(x, m), function(z) {
+    z = gsub(r, '\\1\\2\\3', z)  # remove {{ and }}
+    z = gsub('\n', '\n*', z)     # add * after every \n
+    z
+  })
+  gsub('^\n', '', x)
 }

@@ -87,6 +87,7 @@ moon_reader = function(
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
     ), "if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});",
+    '(function() {var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler"); if (!r) return; s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }"; d.head.appendChild(s);})();',
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 
@@ -98,8 +99,11 @@ moon_reader = function(
     includes$after_body = c(tmp_js, includes$after_body)
     if (identical(mathjax, 'local'))
       stop("mathjax = 'local' does not work for moon_reader()")
-    if (!identical(mathjax, 'default')) {
-      pandoc_args = c(pandoc_args, '--variable', paste0('mathjax-url:', mathjax))
+    if (!is.null(mathjax)) {
+      if (identical(mathjax, 'default')) {
+        mathjax = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
+      }
+      pandoc_args = c(pandoc_args, '-V', paste0('mathjax-url=', mathjax))
       mathjax = NULL
     }
     rmarkdown::html_document(
@@ -118,8 +122,7 @@ moon_reader = function(
 
     function(x, options) {
       res = hook_source(x, options)
-      # replace {{code}} with *code so that this line can be highlighted
-      gsub('(^|\n)([ \t]*)\\{\\{([^\n]+?)\\}\\}', '\\1\\2*\\3', res)
+      highlight_code(res)
     }
   }
 
