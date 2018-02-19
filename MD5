@@ -1,7 +1,7 @@
-d65f58cffe69977bf0aa989c157bd650 *DESCRIPTION
+6dcb0270d358a601f795b7a99e16c431 *DESCRIPTION
 13b9689bf1d0e33232a0517b424af2aa *LICENSE
 f39e8ed8fc772e85c5eb005b0d8bc25d *NAMESPACE
-26473ffe7926584d7b4a7bf804229e59 *R/render.R
+c4ff3a23ab519252740227f952926b15 *R/render.R
 cdc1787b99111bdc894a153aa891f7fa *R/utils.R
 4428a24080c2422630a86f5d35ceb407 *README.md
 dcc771fa97087df88c5998e4c1dfbe06 *build/vignette.rds
@@ -9,9 +9,11 @@ da64a535b0c2ada75dd636b303fa92be *inst/doc/intro-en_US.Rhtml
 ba2b7a3a457d19115c3428e2990cb827 *inst/doc/intro-en_US.html
 ad05bb5ec1d9af549c8f0d4ea056da63 *inst/doc/intro-zh_CN.Rhtml
 0e92a10b26719a70e0a1817f9fa485b1 *inst/doc/intro-zh_CN.html
+be2c3bde731c5c526aa59ce92002ea56 *inst/examples/ghoul.Rmd
 3dcae1f613a817bfa7ad7e7748e1b0de *inst/rmarkdown/templates/xaringan/resources/default-fonts.css
 ee6d3fde8ec65f06d8215d57b8bfff4b *inst/rmarkdown/templates/xaringan/resources/default.css
 8730ac36f1f8d708ef39afad0844ca29 *inst/rmarkdown/templates/xaringan/resources/default.html
+abb243f21b192c5aded2bcaec3a2b6ec *inst/rmarkdown/templates/xaringan/resources/hygge.css
 620b533494fedca08d09c2265e5d0a05 *inst/rmarkdown/templates/xaringan/resources/js/countdown.js
 72b539d42378c66734471a3e254a7938 *inst/rmarkdown/templates/xaringan/resources/js/print-css.js
 2eedd510c9c1efa4da8ce1592e9e1e21 *inst/rmarkdown/templates/xaringan/resources/js/show-widgets.js
