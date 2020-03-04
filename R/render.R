@@ -31,7 +31,11 @@
 #'   show an image, and \code{path} is the path to an image (by default, it is
 #'   Karl).
 #' @param chakra A path to the remark.js library (can be either local or
-#'   remote).
+#'   remote). Please note that if you use the default remote latest version of
+#'   remark.js, your slides will not work when you do not have Internet access.
+#'   They might also be broken after a newer version of remark.js is released.
+#'   If these issues concern you, you should download remark.js locally (e.g.,
+#'   via \code{\link{summon_remark}()}), and use the local version instead.
 #' @param nature (Nature transformation) A list of configurations to be passed
 #'   to \code{remark.create()}, e.g. \code{list(ratio = '16:9', navigation =
 #'   list(click = TRUE))}; see
@@ -112,7 +116,9 @@ moon_reader = function(
     },
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) xfun::tojson(nature) else ''
-    ), pkg_file(c('js/show-widgets.js', 'js/print-css.js', 'js/after.js')),
+    ), pkg_file(sprintf('js/%s.js', c(
+      'show-widgets', 'print-css', 'after', 'script-tags', 'target-blank'
+    ))),
     play_js, countdown_js, hl_pre_js), collapse = '\n')))
   )), tmp_js)
 
@@ -210,7 +216,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
 #' @param cast_from The root directory of the server.
-#' @param params Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.
+#' @param ... Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
@@ -218,7 +224,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @seealso \code{servr::\link{httw}}
 #' @export
 #' @rdname inf_mr
-infinite_moon_reader = function(moon, cast_from = '.', params = NULL) {
+infinite_moon_reader = function(moon, cast_from = '.', ...) {
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
@@ -231,9 +237,10 @@ infinite_moon_reader = function(moon, cast_from = '.', params = NULL) {
     )
   }
   moon = normalize_path(moon)
-  rebuild = function() {
-    rmarkdown::render(moon, envir = parent.frame(2), params = params)
-  }
+  dots = list(...)
+  dots$envir = parent.frame()
+  dots$input = moon
+  rebuild = function() do.call(rmarkdown::render, dots)
   html = NULL
   # rebuild if moon or any dependencies (CSS/JS/images) have been updated
   build = local({
