@@ -42,13 +42,16 @@
 #'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
-#'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
-#'   (the number of milliseconds) to include a countdown timer on each slide. If
-#'   using \code{autoplay}, you can optionally set \code{countdown} to
-#'   \code{TRUE} to include a countdown equal to \code{autoplay}. To alter the
-#'   set of classes applied to the title slide, you can optionally set
-#'   \code{titleSlideClass} to a vector of classes; the default is
-#'   \code{c("center", "middle", "inverse")}.
+#'   \code{autoplay} milliseconds; alternatively, \code{autoplay} can be a list
+#'   of the form \code{list(interval = N, loop = TRUE)}, so the slides will go
+#'   to the next page every \code{N} milliseconds, and optionally go back to the
+#'   first page to restart the play when \code{loop = TRUE}. You can also set
+#'   \code{countdown} to a number (the number of milliseconds) to include a
+#'   countdown timer on each slide. If using \code{autoplay}, you can optionally
+#'   set \code{countdown} to \code{TRUE} to include a countdown equal to
+#'   \code{autoplay}. To alter the set of classes applied to the title slide,
+#'   you can optionally set \code{titleSlideClass} to a vector of classes; the
+#'   default is \code{c("center", "middle", "inverse")}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
@@ -68,7 +71,7 @@
 #'   set in \code{nature}), and the timer is (re)initialized whenever you
 #'   navigate to a new page. If you need a global timer, you can use the
 #'   presenter's mode (press \kbd{P}).
-#' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
+#' @references \url{https://naruto.fandom.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 #' @examples
@@ -88,8 +91,15 @@ moon_reader = function(
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
   options(xaringan.page_number.offset = if (seal) 0L else -1L)
 
-  play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
-    sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
+  if (is.numeric(autoplay <- nature[['autoplay']])) {
+    autoplay = list(interval = autoplay, loop = FALSE)
+  }
+  play_js = if (is.numeric(intv <- autoplay$interval) && intv > 0) sprintf(
+    'setInterval(function() {slideshow.gotoNextSlide();%s}, %d);',
+    if (!isTRUE(autoplay$loop)) '' else
+      ' if (slideshow.getCurrentSlideIndex() == slideshow.getSlideCount() - 1) slideshow.gotoFirstSlide();',
+    intv
+  )
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
   countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
@@ -147,12 +157,7 @@ moon_reader = function(
 
   highlight_hooks = NULL
   if (isTRUE(nature$highlightLines)) {
-    # an ugly way to access hooks of markdown output in knitr
-    hooks = local({
-      ohooks = knitr::knit_hooks$get(); on.exit(knitr::knit_hooks$restore(ohooks))
-      knitr::render_markdown()
-      knitr::knit_hooks$get(c('source', 'output'))
-    })
+    hooks = knitr::hooks_markdown()[c('source', 'output')]
     highlight_hooks = list(
       source = function(x, options) {
         hook = hooks[['source']]
@@ -217,7 +222,7 @@ tsukuyomi = function(...) moon_reader(...)
 #'   active document is used).
 #' @param cast_from The root directory of the server.
 #' @param ... Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.
-#' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
+#' @references \url{https://naruto.fandom.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
 #'   Markdown output.
