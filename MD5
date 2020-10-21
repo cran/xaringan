@@ -1,8 +1,8 @@
-d33fb0d0e3cd993b62b6d38bbc2f3c68 *DESCRIPTION
+9563ce4895245bc575c46d123a59458b *DESCRIPTION
 50e1904a1f72a9b533bd9217354cbf91 *LICENSE
-0613e55e2d3fe0524a04350648682f7a *NAMESPACE
-8e73c35f2b4c3aa286f5dfe554574c11 *R/render.R
-102cf03e26343648466750300e1028a3 *R/utils.R
+2af7899e4e2a0f99f92cdee625220128 *NAMESPACE
+38e20fb05b115346b832ea5b3d89ceb6 *R/render.R
+c1d82dbd07b3b5e10b6cee6166e812c0 *R/utils.R
 870f8866c84b9ef8adc2b8900d9cca66 *README.md
 c69a5203b48adc53f764f893d21a5da4 *build/vignette.rds
 5b405ea00a6df1d7bd89fb3d87423409 *inst/NEWS.Rd
@@ -27,6 +27,7 @@ e8ff3e18c908700b3a225bb9f4a2c0bf *inst/rmarkdown/templates/xaringan/resources/fc
 abb243f21b192c5aded2bcaec3a2b6ec *inst/rmarkdown/templates/xaringan/resources/hygge.css
 8dd81d79627f95349540c317de2f3041 *inst/rmarkdown/templates/xaringan/resources/js/after.js
 620b533494fedca08d09c2265e5d0a05 *inst/rmarkdown/templates/xaringan/resources/js/countdown.js
+0ffc29059bc94eb8709df6a3d29725a2 *inst/rmarkdown/templates/xaringan/resources/js/data-uri.js
 c5ef94105f70d0850ebcce2b3ae8348f *inst/rmarkdown/templates/xaringan/resources/js/highlight-pre-parent.js
 fed58a378074c056fdad449678a11dfa *inst/rmarkdown/templates/xaringan/resources/js/print-css.js
 561896df585564960a9aced95421445b *inst/rmarkdown/templates/xaringan/resources/js/script-tags.js
@@ -52,6 +53,8 @@ b46fae03b9922f496c32172b8c505e67 *inst/rmarkdown/templates/xaringan/resources/ro
 05f127fb6bd3eccb004c0bf160a90e17 *inst/rmarkdown/templates/xaringan/resources/shinobi.css
 e44afa08bd1dfa573b900a0980333116 *inst/rmarkdown/templates/xaringan/resources/tamu-fonts.css
 2a39c6b2bad590500f38fe5a8c2bc113 *inst/rmarkdown/templates/xaringan/resources/tamu.css
+cbce223a17804007f1e9577beaf470da *inst/rmarkdown/templates/xaringan/resources/uio-fonts.css
+399d28ad1cf18907471ef0b8638b86aa *inst/rmarkdown/templates/xaringan/resources/uio.css
 4e8468c780b9721ed5f27c868b82f1d0 *inst/rmarkdown/templates/xaringan/resources/uo-fonts.css
 9b500e472cf815e757271dfc7da3af21 *inst/rmarkdown/templates/xaringan/resources/uo.css
 80213997acd96664b3ab3e94274db825 *inst/rmarkdown/templates/xaringan/resources/uol-fonts.css
@@ -66,11 +69,12 @@ e86bc7a06b04e21f4dcced3c073fdd7f *inst/rmarkdown/templates/xaringan_zh-CN/skelet
 6e1608204c26f2121cd1d817d3efa814 *inst/rstudio/addins.dcf
 71b989269470f318f107923e82095243 *man/decktape.Rd
 89ef5de50fda3a022ff1bbf113412e1b *man/inf_mr.Rd
-c0a84923fd0889cd9ed18c29f21faaaf *man/moon_reader.Rd
+3ca7143708367d2040610629e198d6e6 *man/moon_reader.Rd
 e0e1a043e3e45b117bdf54bdfd3cad51 *man/summon_remark.Rd
 27669b18012b386158306dd2ae992d44 *tests/test-all.R
 6c6faa597b0ce3973f1c2940025a10bd *tests/test2/parameterized.Rmd
 691155bc65de0630a7c37006003433de *tests/test2/test-render.R
-79d560866ae701e4083baa3030429a21 *tests/testit/test-utils.R
+d783ae3760db1e4d2c5b1599ebcf30be *tests/testit/1x1.gif
+3f33c375ed64cb43f4c6acf28454f086 *tests/testit/test-utils.R
 eff5673011e48b53784127a0d40d2343 *vignettes/intro-en_US.Rhtml
 4c054e2c9934957e4864e9d18708014b *vignettes/intro-zh_CN.Rhtml
