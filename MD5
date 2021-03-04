@@ -1,7 +1,7 @@
-3bd0162e9091b4d49e0c2473da729d91 *DESCRIPTION
-50e1904a1f72a9b533bd9217354cbf91 *LICENSE
+7cb33ddbe354927b81a12010d47df7ca *DESCRIPTION
+4a4fc768ad68495236354780847fa3d6 *LICENSE
 2af7899e4e2a0f99f92cdee625220128 *NAMESPACE
-38e20fb05b115346b832ea5b3d89ceb6 *R/render.R
+0e83e5049e9bae7efb71df10c55bab12 *R/render.R
 c1d82dbd07b3b5e10b6cee6166e812c0 *R/utils.R
 a9210311cf79f40fc7c10b595f060f0c *README.md
 acbe39a223ce1905de7acd3424fc89aa *build/vignette.rds
@@ -12,9 +12,9 @@ ffe7549064315b64357d1b0601a052fb *inst/doc/intro-en_US.html
 059c61ac662dbb0e29d1888757efe0d5 *inst/doc/intro-zh_CN.html
 7db9a3275893a4def39b78acb75ab6e3 *inst/examples/fc-demo.Rmd
 be2c3bde731c5c526aa59ce92002ea56 *inst/examples/ghoul.Rmd
-dcb0e314ef186a0c36b5946b6a01ac96 *inst/examples/ki-demo.Rmd
+3cd3c7b00c88c3b4b604fb6cd6990100 *inst/examples/ki-demo.Rmd
 844817d93529a0c9c0a61b5d0cb4dec8 *inst/examples/lucy-demo.Rmd
-ae03cbf9076a9fcbd3c6ed2aac56e394 *inst/examples/uol-demo.Rmd
+1365900dae7ee134aeeacdd70991f577 *inst/examples/uol-demo.Rmd
 f9f05f943d4c63eef2f4f529cee5a0e4 *inst/rmarkdown/templates/xaringan/resources/chocolate-fonts.css
 1624bd73f60f6e30732bfbdfa77eb532 *inst/rmarkdown/templates/xaringan/resources/chocolate.css
 3dcae1f613a817bfa7ad7e7748e1b0de *inst/rmarkdown/templates/xaringan/resources/default-fonts.css
@@ -51,7 +51,7 @@ c5ac555503e59464f88ca89caee9bb58 *inst/rmarkdown/templates/xaringan/resources/nh
 b46fae03b9922f496c32172b8c505e67 *inst/rmarkdown/templates/xaringan/resources/robot-fonts.css
 2f4eab26b4d5db641157ddfe03d2d0ec *inst/rmarkdown/templates/xaringan/resources/robot.css
 345fb3a7df3aa88862086ae04b420374 *inst/rmarkdown/templates/xaringan/resources/rutgers-fonts.css
-6ea23bc36e8446462c63df4fedf04b63 *inst/rmarkdown/templates/xaringan/resources/rutgers.css
+ec8bce5c105ded5b4c0cc7387840aa55 *inst/rmarkdown/templates/xaringan/resources/rutgers.css
 05f127fb6bd3eccb004c0bf160a90e17 *inst/rmarkdown/templates/xaringan/resources/shinobi.css
 e44afa08bd1dfa573b900a0980333116 *inst/rmarkdown/templates/xaringan/resources/tamu-fonts.css
 2a39c6b2bad590500f38fe5a8c2bc113 *inst/rmarkdown/templates/xaringan/resources/tamu.css
@@ -63,9 +63,9 @@ cbce223a17804007f1e9577beaf470da *inst/rmarkdown/templates/xaringan/resources/ui
 feabdcff28c3b615a7fe3ffb29981385 *inst/rmarkdown/templates/xaringan/resources/uol.css
 ddbb564846e8aa1fb6d94c3821d90c6a *inst/rmarkdown/templates/xaringan/resources/useR-fonts.css
 d9a840a7d9eb42c9404303e550b1f275 *inst/rmarkdown/templates/xaringan/resources/useR.css
-64426025b0ad3d6ed97f4a16e2e24723 *inst/rmarkdown/templates/xaringan/skeleton/skeleton.Rmd
+755a861dbbf3507fa5ad522d7dc66a55 *inst/rmarkdown/templates/xaringan/skeleton/skeleton.Rmd
 4fa558ab154a522285630018d4e1eb6a *inst/rmarkdown/templates/xaringan/template.yaml
-e86bc7a06b04e21f4dcced3c073fdd7f *inst/rmarkdown/templates/xaringan_zh-CN/skeleton/skeleton.Rmd
+c9d604c9cfa4a67482c5d7eb438518a9 *inst/rmarkdown/templates/xaringan_zh-CN/skeleton/skeleton.Rmd
 243253e7d88b7ec0dc0a52730a64a8fd *inst/rmarkdown/templates/xaringan_zh-CN/skeleton/zh-CN.css
 4303b183ec71dc0ce09e132f9ee8fa7e *inst/rmarkdown/templates/xaringan_zh-CN/template.yaml
 6e1608204c26f2121cd1d817d3efa814 *inst/rstudio/addins.dcf
