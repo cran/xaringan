@@ -1,10 +1,10 @@
-1d6ed7d628cdb8a5e39c5543e95753ad *DESCRIPTION
+0ce61c4b4fcb3d4d62a871502127005e *DESCRIPTION
 4a4fc768ad68495236354780847fa3d6 *LICENSE
 2af7899e4e2a0f99f92cdee625220128 *NAMESPACE
 7948a3ed617e97b25b94f7970c6506b2 *R/render.R
 38ad2cfa7ccb348152ac9040d2ca17e7 *R/utils.R
 a9210311cf79f40fc7c10b595f060f0c *README.md
-1425863e366bf9949609cd15ecb654c9 *build/vignette.rds
+5d05d6641b178151acf4cce87914fd7f *build/vignette.rds
 5b405ea00a6df1d7bd89fb3d87423409 *inst/NEWS.Rd
 eff5673011e48b53784127a0d40d2343 *inst/doc/intro-en_US.Rhtml
 ffe7549064315b64357d1b0601a052fb *inst/doc/intro-en_US.html
@@ -23,6 +23,7 @@ d281055e66f0af38b96060f223243952 *inst/rmarkdown/templates/xaringan/resources/de
 d95be689c2c9bd78efe0655cdf1531e7 *inst/rmarkdown/templates/xaringan/resources/duke-blue.css
 e8ff3e18c908700b3a225bb9f4a2c0bf *inst/rmarkdown/templates/xaringan/resources/fc-fonts.css
 7ad8dc0631176472a40acb04adecea43 *inst/rmarkdown/templates/xaringan/resources/fc.css
+e263ae73cfa76217c0c81884acc10017 *inst/rmarkdown/templates/xaringan/resources/glasgow_template.css
 36a6addd8544621bae775ad688cd5495 *inst/rmarkdown/templates/xaringan/resources/hygge-duke.css
 abb243f21b192c5aded2bcaec3a2b6ec *inst/rmarkdown/templates/xaringan/resources/hygge.css
 8dd81d79627f95349540c317de2f3041 *inst/rmarkdown/templates/xaringan/resources/js/after.js
@@ -62,7 +63,9 @@ cbce223a17804007f1e9577beaf470da *inst/rmarkdown/templates/xaringan/resources/ui
 80213997acd96664b3ab3e94274db825 *inst/rmarkdown/templates/xaringan/resources/uol-fonts.css
 feabdcff28c3b615a7fe3ffb29981385 *inst/rmarkdown/templates/xaringan/resources/uol.css
 ddbb564846e8aa1fb6d94c3821d90c6a *inst/rmarkdown/templates/xaringan/resources/useR-fonts.css
-d9a840a7d9eb42c9404303e550b1f275 *inst/rmarkdown/templates/xaringan/resources/useR.css
+816ca61e1d924fdae912e54dfcb7351d *inst/rmarkdown/templates/xaringan/resources/useR.css
+4c2acefc1b366cecd02f338e7e6ed7a6 *inst/rmarkdown/templates/xaringan/resources/uwm-fonts.css
+1bc2b573fffd1d8aa887d9bf9efa5875 *inst/rmarkdown/templates/xaringan/resources/uwm.css
 2bf741b9041cf1e537c16e80c72258d9 *inst/rmarkdown/templates/xaringan/skeleton/skeleton.Rmd
 4fa558ab154a522285630018d4e1eb6a *inst/rmarkdown/templates/xaringan/template.yaml
 c9d604c9cfa4a67482c5d7eb438518a9 *inst/rmarkdown/templates/xaringan_zh-CN/skeleton/skeleton.Rmd
