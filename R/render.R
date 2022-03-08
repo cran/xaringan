@@ -180,6 +180,9 @@ moon_reader = function(
       mathjax = NULL
     }
     pandoc_args = c(pandoc_args, '-V', paste0('title-slide-class=', title_cls))
+    # avoid automatic wrapping: https://github.com/yihui/xaringan/issues/345
+    if (!length(grep('--wrap', pandoc_args)))
+      pandoc_args = c('--wrap', 'preserve', pandoc_args)
     rmarkdown::html_document(
       ..., includes = includes, mathjax = mathjax, pandoc_args = pandoc_args
     )
@@ -383,9 +386,8 @@ inf_mr = infinite_moon_reader
 #'   \url{https://www.docker.com}.
 #' @return The output file path (invisibly).
 #' @export
-#' @examples if (interactive()) {
-#'   xaringan::decktape('https://slides.yihui.org/xaringan', 'xaringan.pdf', docker = FALSE)
-#' }
+#' @examplesIf interactive()
+#' xaringan::decktape('https://slides.yihui.org/xaringan', 'xaringan.pdf', docker = FALSE)
 decktape = function(
   file, output, args = '--chrome-arg=--allow-file-access-from-files',
   docker = Sys.which('decktape') == '', version = '', open = FALSE
