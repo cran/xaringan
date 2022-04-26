@@ -1,7 +1,7 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.23
+Version: 0.24
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
     # contributors ordered alphabetically below
@@ -17,6 +17,7 @@ Authors@R: c(
     person("John", "Little", role = "ctb"),
     person("Joselyn", "Chávez", role = "ctb", comment = c(ORCID = "0000-0002-4974-4591")),
     person("Joseph", "Casillas", role = "ctb"),
+    person("JooYoung", "Seo", role = "ctb", comment = c(ORCID = "0000-0002-4064-6012")),
     person("Lucy", "D'Agostino McGowan", role = "ctb", comment = c(ORCID = "0000-0001-7297-9359")),
     person("Malcolm", "Barrett", role = "ctb", comment = c(ORCID = "0000-0003-0299-5825")),
     person(c("Matthew", "Mark"), "Strasiotto", role = "ctb", comment = c(github = "mstr3336")),
@@ -48,7 +49,7 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2022-03-08 15:04:05 UTC; yihui
+Packaged: 2022-04-26 00:22:48 UTC; yihui
 Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   Alessandro Gasparini [ctb] (<https://orcid.org/0000-0002-8319-7624>),
   Benjie Gillam [ctb],
@@ -62,6 +63,7 @@ Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   John Little [ctb],
   Joselyn Chávez [ctb] (<https://orcid.org/0000-0002-4974-4591>),
   Joseph Casillas [ctb],
+  JooYoung Seo [ctb] (<https://orcid.org/0000-0002-4064-6012>),
   Lucy D'Agostino McGowan [ctb] (<https://orcid.org/0000-0001-7297-9359>),
   Malcolm Barrett [ctb] (<https://orcid.org/0000-0003-0299-5825>),
   Matthew Mark Strasiotto [ctb] (mstr3336),
@@ -82,4 +84,4 @@ Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   Zhian N. Kamvar [ctb] (<https://orcid.org/0000-0003-1458-7108>)
 Maintainer: Yihui Xie <xie@yihui.name>
 Repository: CRAN
-Date/Publication: 2022-03-08 15:50:02 UTC
+Date/Publication: 2022-04-26 08:20:02 UTC
