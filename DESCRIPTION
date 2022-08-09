@@ -1,7 +1,7 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.25
+Version: 0.26
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
     # contributors ordered alphabetically below
@@ -28,6 +28,7 @@ Authors@R: c(
     person("Patrick", "Schratz", role = "ctb"),
     person("Paul", "Klemm", role = "ctb", comment = c(ORCID = "0000-0002-5985-1737")),
     person("Paul", "Lemmens", role = "ctb"),
+    person("Robert", "Fromont", role = "ctb", email = "robert.fromont@canterbury.ac.nz", comment = c(ORCID = "0000-0001-5271-5487")),
     person("Sean", "Lopp", role = "ctb"),
     person("Silvia", "Canelon", role = "ctb", comment = c(ORCID = "0000-0003-1709-1394")),
     person("Susan", "VanderPlas", role = "ctb", comment = c(ORCID = "0000-0002-3803-0972")),
@@ -50,7 +51,7 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.2.0
 NeedsCompilation: no
-Packaged: 2022-06-14 01:49:04 UTC; yihui
+Packaged: 2022-08-09 21:22:57 UTC; yihui
 Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   Alessandro Gasparini [ctb] (<https://orcid.org/0000-0002-8319-7624>),
   Benjie Gillam [ctb],
@@ -76,6 +77,7 @@ Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   Patrick Schratz [ctb],
   Paul Klemm [ctb] (<https://orcid.org/0000-0002-5985-1737>),
   Paul Lemmens [ctb],
+  Robert Fromont [ctb] (<https://orcid.org/0000-0001-5271-5487>),
   Sean Lopp [ctb],
   Silvia Canelon [ctb] (<https://orcid.org/0000-0003-1709-1394>),
   Susan VanderPlas [ctb] (<https://orcid.org/0000-0002-3803-0972>),
@@ -86,4 +88,4 @@ Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   Zhian N. Kamvar [ctb] (<https://orcid.org/0000-0003-1458-7108>)
 Maintainer: Yihui Xie <xie@yihui.name>
 Repository: CRAN
-Date/Publication: 2022-06-14 03:10:02 UTC
+Date/Publication: 2022-08-09 22:20:02 UTC
