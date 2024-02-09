@@ -1,10 +1,10 @@
-8807991624d216d788121051c38e559f *DESCRIPTION
+549ab737c3cafc22035d5416e12de298 *DESCRIPTION
 4a4fc768ad68495236354780847fa3d6 *LICENSE
 bef4a08b94feb951860f9fb42053652b *NAMESPACE
-d74aa74d8ceac964973824acb41a052c *R/render.R
+68ffc2a58402aad62db1ebe263468ee0 *R/render.R
 8c47479cb9a274a20135eaa35474955b *R/utils.R
 73ee89cf1dc9ece1b6d2fb07f4a6149b *README.md
-b735acbe5d73ab351ef10d0b5e2661fc *build/vignette.rds
+45a7f016d54ae9043f5e4d7ba2dd6079 *build/vignette.rds
 5b405ea00a6df1d7bd89fb3d87423409 *inst/NEWS.Rd
 eff5673011e48b53784127a0d40d2343 *inst/doc/intro-en_US.Rhtml
 ffe7549064315b64357d1b0601a052fb *inst/doc/intro-en_US.html
@@ -34,7 +34,7 @@ fed58a378074c056fdad449678a11dfa *inst/rmarkdown/templates/xaringan/resources/js
 561896df585564960a9aced95421445b *inst/rmarkdown/templates/xaringan/resources/js/script-tags.js
 2eedd510c9c1efa4da8ce1592e9e1e21 *inst/rmarkdown/templates/xaringan/resources/js/show-widgets.js
 548b1b2c421a0148ddf69dc0ed753615 *inst/rmarkdown/templates/xaringan/resources/js/target-blank.js
-c8ee8c30859fe7ebf53f8cdee0ce6845 *inst/rmarkdown/templates/xaringan/resources/js/ws-handler.js
+6f2f06c0a28cc59bc951b273040ac0cb *inst/rmarkdown/templates/xaringan/resources/js/ws-handler.js
 f1a6d44dca4f4180167339b387d7edab *inst/rmarkdown/templates/xaringan/resources/ki-fonts.css
 fbd23a5fa4b9ceaa07ae08c1fedb2dde *inst/rmarkdown/templates/xaringan/resources/ki.css
 8df053ff594303b985f866eab33255c9 *inst/rmarkdown/templates/xaringan/resources/kunoichi.css
