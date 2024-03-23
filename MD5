@@ -1,10 +1,10 @@
-549ab737c3cafc22035d5416e12de298 *DESCRIPTION
+c2579511e3996e051b861766ccc8647b *DESCRIPTION
 4a4fc768ad68495236354780847fa3d6 *LICENSE
 bef4a08b94feb951860f9fb42053652b *NAMESPACE
 68ffc2a58402aad62db1ebe263468ee0 *R/render.R
 8c47479cb9a274a20135eaa35474955b *R/utils.R
 73ee89cf1dc9ece1b6d2fb07f4a6149b *README.md
-45a7f016d54ae9043f5e4d7ba2dd6079 *build/vignette.rds
+8fecc643198606b1fa038b6543f044af *build/vignette.rds
 5b405ea00a6df1d7bd89fb3d87423409 *inst/NEWS.Rd
 eff5673011e48b53784127a0d40d2343 *inst/doc/intro-en_US.Rhtml
 ffe7549064315b64357d1b0601a052fb *inst/doc/intro-en_US.html
@@ -34,7 +34,7 @@ fed58a378074c056fdad449678a11dfa *inst/rmarkdown/templates/xaringan/resources/js
 561896df585564960a9aced95421445b *inst/rmarkdown/templates/xaringan/resources/js/script-tags.js
 2eedd510c9c1efa4da8ce1592e9e1e21 *inst/rmarkdown/templates/xaringan/resources/js/show-widgets.js
 548b1b2c421a0148ddf69dc0ed753615 *inst/rmarkdown/templates/xaringan/resources/js/target-blank.js
-6f2f06c0a28cc59bc951b273040ac0cb *inst/rmarkdown/templates/xaringan/resources/js/ws-handler.js
+282bba9cdf35684d00a2c2de09a4f0d9 *inst/rmarkdown/templates/xaringan/resources/js/ws-handler.js
 f1a6d44dca4f4180167339b387d7edab *inst/rmarkdown/templates/xaringan/resources/ki-fonts.css
 fbd23a5fa4b9ceaa07ae08c1fedb2dde *inst/rmarkdown/templates/xaringan/resources/ki.css
 8df053ff594303b985f866eab33255c9 *inst/rmarkdown/templates/xaringan/resources/kunoichi.css
@@ -52,7 +52,7 @@ c5ac555503e59464f88ca89caee9bb58 *inst/rmarkdown/templates/xaringan/resources/nh
 b46fae03b9922f496c32172b8c505e67 *inst/rmarkdown/templates/xaringan/resources/robot-fonts.css
 2f4eab26b4d5db641157ddfe03d2d0ec *inst/rmarkdown/templates/xaringan/resources/robot.css
 345fb3a7df3aa88862086ae04b420374 *inst/rmarkdown/templates/xaringan/resources/rutgers-fonts.css
-ec8bce5c105ded5b4c0cc7387840aa55 *inst/rmarkdown/templates/xaringan/resources/rutgers.css
+804e21250f16f53f843fd5b8de77afb6 *inst/rmarkdown/templates/xaringan/resources/rutgers.css
 05f127fb6bd3eccb004c0bf160a90e17 *inst/rmarkdown/templates/xaringan/resources/shinobi.css
 e44afa08bd1dfa573b900a0980333116 *inst/rmarkdown/templates/xaringan/resources/tamu-fonts.css
 2a39c6b2bad590500f38fe5a8c2bc113 *inst/rmarkdown/templates/xaringan/resources/tamu.css

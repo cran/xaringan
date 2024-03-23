@@ -1,7 +1,7 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.29
+Version: 0.30
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
     person(given = "Posit Software, PBC", role = c("cph", "fnd")),
@@ -43,7 +43,7 @@ Authors@R: c(
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).
 Depends: R (>= 3.5.0)
-Imports: htmltools, knitr (>= 1.30), servr (>= 0.29), xfun (>= 0.18),
+Imports: htmltools, knitr (>= 1.30), servr (>= 0.30), xfun (>= 0.18),
         rmarkdown (>= 2.8)
 Suggests: rstudioapi, jsonlite, testit
 License: MIT + file LICENSE
@@ -53,7 +53,7 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2024-02-09 13:53:43 UTC; yihui
+Packaged: 2024-03-23 17:27:56 UTC; yihui
 Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   Posit Software, PBC [cph, fnd],
   Alessandro Gasparini [ctb] (<https://orcid.org/0000-0002-8319-7624>),
@@ -91,4 +91,4 @@ Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),
   Zhian N. Kamvar [ctb] (<https://orcid.org/0000-0003-1458-7108>)
 Maintainer: Yihui Xie <xie@yihui.name>
 Repository: CRAN
-Date/Publication: 2024-02-09 14:30:02 UTC
+Date/Publication: 2024-03-23 17:50:02 UTC
